@@ -1,7 +1,16 @@
 package com.mycompany.app;
 
+import com.sun.istack.internal.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class HeroWithWeapon extends StandartHero {
 
+    @Autowired
+    @Qualifier("sword")
+    @NotNull
     private Weapon weapon;
 
     public HeroWithWeapon() {

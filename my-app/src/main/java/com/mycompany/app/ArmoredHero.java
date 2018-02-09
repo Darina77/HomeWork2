@@ -1,17 +1,26 @@
 package com.mycompany.app;
 
+import com.sun.istack.internal.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ArmoredHero implements Hero
 {
+    @Autowired
+    @NotNull
     private Armor armor;
     private int strength = 2;
-    private String name = "Noname";
+    @NotNull
+    private String name;
 
-    public ArmoredHero(Armor armor) { this.armor = armor;}
+    public  ArmoredHero() {
+        name = "Noname";
+    }
 
-    public ArmoredHero(String name, int strength, Armor armor){
+    public ArmoredHero(String name, int strength){
         this.name = name;
         this.strength = strength;
-        this.armor = armor;
     }
 
     public void setArmor(Armor armor){
